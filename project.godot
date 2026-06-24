@@ -1,0 +1,29 @@
+; Engine configuration file.
+; Game for Peter - educational alphabet game (Godot 4.7, iOS).
+
+config_version=5
+
+[application]
+
+config/name="Game for Peter"
+run/main_scene="res://scenes/start/StartScene.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+AudioManager="*res://scripts/autoloads/AudioManager.gd"
+SceneLoader="*res://scripts/autoloads/SceneLoader.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1280
+window/handheld/orientation="sensor"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
