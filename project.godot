@@ -21,7 +21,7 @@ window/size/viewport_width=720
 window/size/viewport_height=1280
 window/handheld/orientation="sensor"
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [rendering]
 
