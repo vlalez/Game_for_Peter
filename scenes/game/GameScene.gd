@@ -12,6 +12,11 @@ const MAX_FONT_SIZE: int = 48
 const MIN_WORD_LEN: int = 3
 const MAX_WORD_LEN: int = 9
 const NEXT_WORD_DELAY: float = 1.0
+const DESIGN_WIDTH: int = 720
+const CONTENT_MARGIN: int = 24
+const TILE_SEPARATION: int = 12
+const MIN_TILE_WIDTH: int = 60
+const MAX_TILE_WIDTH: int = 150
 
 @onready var _image: TextureRect = %WordImage
 @onready var _tiles: HBoxContainer = %TilesContainer
@@ -66,22 +71,25 @@ func _load_word(data: WordData) -> void:
 	_image.texture = data.image
 	var word: String = data.word.to_upper()
 	var font_size: int = _font_size_for(word.length())
-	_build_slots(word)
-	_build_tiles(_scramble(word), font_size)
+	var tile_width: int = _tile_width_for(word.length())
+	_build_slots(word, tile_width)
+	_build_tiles(_scramble(word), font_size, tile_width)
 
 
-func _build_slots(word: String) -> void:
+func _build_slots(word: String, tile_width: int) -> void:
 	for i in word.length():
 		var slot := SLOT_SCENE.instantiate() as DropSlot
 		slot.expected_letter = word[i]
+		slot.custom_minimum_size = Vector2(tile_width, slot.custom_minimum_size.y)
 		slot.filled.connect(_on_slot_filled)
 		_slots.add_child(slot)
 
 
-func _build_tiles(letters: Array, font_size: int) -> void:
+func _build_tiles(letters: Array, font_size: int, tile_width: int) -> void:
 	for ch in letters:
 		var tile := TILE_SCENE.instantiate() as LetterTile
 		tile.letter = ch
+		tile.custom_minimum_size = Vector2(tile_width, tile.custom_minimum_size.y)
 		_tiles.add_child(tile)
 		tile.set_font_size(font_size)
 
@@ -108,6 +116,12 @@ func _font_size_for(length: int) -> int:
 		return MIN_FONT_SIZE
 	var t := float(length - MIN_WORD_LEN) / float(MAX_WORD_LEN - MIN_WORD_LEN)
 	return int(round(lerp(float(MAX_FONT_SIZE), float(MIN_FONT_SIZE), t)))
+
+
+## Fixed per-tile width so tiles keep their size as siblings are removed.
+func _tile_width_for(count: int) -> int:
+	var usable: int = DESIGN_WIDTH - 2 * CONTENT_MARGIN - TILE_SEPARATION * (count - 1)
+	return clampi(usable / count, MIN_TILE_WIDTH, MAX_TILE_WIDTH)
 
 
 func _clear_children(node: Node) -> void:
