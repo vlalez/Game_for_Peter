@@ -1,7 +1,7 @@
 extends Control
 ## Orchestrates one spelling round: shows the word image, spawns scrambled
 ## letter tiles and matching drop slots, advances when the word is solved,
-## and handles the confirmed-quit flow back to the start screen.
+## and quits the app on confirmed quit.
 
 const WORDS_DIR: String = "res://resources/words/"
 const SUCCESS_SOUND_PATH: String = "res://resources/audio/success.wav"
@@ -40,7 +40,7 @@ func _ready() -> void:
 		_load_word(_words[_index])
 
 
-## Load every WordData under resources/words/, shortest word first.
+## Load every WordData under resources/words/ in random order.
 func _load_words() -> Array[WordData]:
 	var result: Array[WordData] = []
 	var dir := DirAccess.open(WORDS_DIR)
@@ -52,14 +52,8 @@ func _load_words() -> Array[WordData]:
 		var data := load(WORDS_DIR + file) as WordData
 		if data != null and data.word != "":
 			result.append(data)
-	result.sort_custom(_compare_words)
+	result.shuffle()
 	return result
-
-
-func _compare_words(a: WordData, b: WordData) -> bool:
-	if a.word.length() == b.word.length():
-		return a.word < b.word
-	return a.word.length() < b.word.length()
 
 
 func _load_word(data: WordData) -> void:
@@ -147,4 +141,4 @@ func _on_quit_pressed() -> void:
 
 
 func _on_quit_confirmed() -> void:
-	SceneLoader.go_to_start()
+	get_tree().quit()

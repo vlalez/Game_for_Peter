@@ -153,7 +153,7 @@ The main gameplay screen. The child sees an image, scrambled square letter tiles
 ### Scene flow
 ```
 StartScene  →  (Start Game button)  →  GameScene
-GameScene   →  (Quit Game button)   →  StartScene
+GameScene   →  (Quit Game button)   →  quits the app
 ```
 
 Register `StartScene.tscn` as the **Main Scene** in `Project > Project Settings > Application > Run`.
@@ -190,8 +190,8 @@ Each word maps to one `WordData` resource at `resources/words/<word>.tres`.
 | 20 | CRANE     | 5       | crane bird         | crane.png      |
 | 21 | LEMON     | 5       | lemon fruit        | lemon.png      |
 | 22 | CAMEL     | 5       | camel desert       | camel.png      |
-| 23 | RABBIT    | 6       | rabbit             | rabbit.png     |
-| 24 | PARROT    | 6       | parrot             | parrot.png     |
+| 23 | DRAGON    | 6       | dragon             | dragon.png     |
+| 24 | PILLOW    | 6       | pillow             | pillow.png     |
 | 25 | SPIDER    | 6       | spider             | spider.png     |
 | 26 | BANANA    | 6       | banana fruit       | banana.png     |
 | 27 | CASTLE    | 6       | castle             | castle.png     |
