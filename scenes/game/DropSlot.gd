@@ -17,6 +17,8 @@ func is_filled() -> bool:
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if _filled:
 		return false
+	if expected_letter == "":
+		return false
 	if typeof(data) != TYPE_DICTIONARY:
 		return false
 	return data.get("letter", "") == expected_letter

@@ -28,6 +28,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/handheld/orientation="sensor"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
