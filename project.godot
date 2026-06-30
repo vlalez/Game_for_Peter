@@ -1,5 +1,10 @@
 ; Engine configuration file.
-; Game for Peter - educational alphabet game (Godot 4.7, iOS).
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
 
 config_version=5
 
@@ -19,9 +24,9 @@ SceneLoader="*res://scripts/autoloads/SceneLoader.gd"
 
 window/size/viewport_width=720
 window/size/viewport_height=1280
-window/handheld/orientation="sensor"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
+window/handheld/orientation="sensor"
 
 [rendering]
 
