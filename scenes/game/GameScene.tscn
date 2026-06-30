@@ -81,3 +81,38 @@ title = "Quit Game"
 initial_position = 2
 size = Vector2i(320, 120)
 dialog_text = "Are you sure you want to quit?"
+
+[node name="SuccessOverlay" type="Control" parent="UILayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Bg" type="ColorRect" parent="UILayer/SuccessOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.3)
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="UILayer/SuccessOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -60.0
+offset_right = 300.0
+offset_bottom = 60.0
+pivot_offset = Vector2(300, 60)
+theme_override_font_sizes/font_size = 80
+theme_override_colors/font_color = Color(1, 0.85, 0.1, 1)
+text = "WELL DONE!"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -6,6 +6,8 @@ extends Control
 
 signal filled
 
+@onready var _panel: Panel = $Panel
+
 var expected_letter: String = ""
 var _filled: bool = false
 
@@ -36,3 +38,11 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	tile.offset_bottom = 0.0
 	_filled = true
 	filled.emit()
+	_flash_success()
+
+
+func _flash_success() -> void:
+	if _panel == null:
+		return
+	var tween := create_tween().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(_panel, "modulate", Color(0.45, 1.0, 0.55, 0.9), 0.2)

@@ -1,11 +1,13 @@
 extends GutTest
 ## Tests for DropSlot letter-matching and fill-state logic.
 
+const DropSlotScene := preload("res://scenes/game/DropSlot.tscn")
+
 var _slot: DropSlot
 
 
 func before_each() -> void:
-	_slot = DropSlot.new()
+	_slot = DropSlotScene.instantiate()
 	_slot.expected_letter = "A"
 	add_child_autofree(_slot)
 
