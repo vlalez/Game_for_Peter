@@ -1,0 +1,6 @@
+# Godot editor cache and imported assets
+.godot/
+
+# Build artifacts and generated Xcode project
+build/
+*.ipa
