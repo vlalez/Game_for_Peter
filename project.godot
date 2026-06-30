@@ -25,8 +25,13 @@ SceneLoader="*res://scripts/autoloads/SceneLoader.gd"
 window/size/viewport_width=720
 window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="expand"
 window/handheld/orientation="sensor"
+window/dpi/allow_hidpi=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
 [rendering]
 
