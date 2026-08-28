@@ -9,14 +9,18 @@ requirement. This supersedes the earlier Unsplash/Pixabay sourcing policy.
 | Image       | Source        | License                          |
 |-------------|---------------|----------------------------------|
 | apple.png   | AI-generated  | Original work, free to use       |
+| banana.png  | AI-generated  | Original work, free to use       |
 | bear.png    | AI-generated  | Original work, free to use       |
 | bee.png     | AI-generated  | Original work, free to use       |
 | bird.png    | AI-generated  | Original work, free to use       |
+| bridge.png  | AI-generated  | Original work, free to use       |
 | cake.png    | AI-generated  | Original work, free to use       |
 | camel.png   | AI-generated  | Original work, free to use       |
+| castle.png  | AI-generated  | Original work, free to use       |
 | cat.png     | AI-generated  | Original work, free to use       |
 | crane.png   | AI-generated  | Original work, free to use       |
 | dog.png     | AI-generated  | Original work, free to use       |
+| dolphin.png | AI-generated  | Original work, free to use       |
 | dragon.png  | AI-generated  | Original work, free to use       |
 | duck.png    | AI-generated  | Original work, free to use       |
 | egg.png     | AI-generated  | Original work, free to use       |
@@ -26,12 +30,14 @@ requirement. This supersedes the earlier Unsplash/Pixabay sourcing policy.
 | house.png   | AI-generated  | Original work, free to use       |
 | lemon.png   | AI-generated  | Original work, free to use       |
 | lion.png    | AI-generated  | Original work, free to use       |
+| pillow.png  | AI-generated  | Original work, free to use       |
 | rose.png    | AI-generated  | Original work, free to use       |
+| spider.png  | AI-generated  | Original work, free to use       |
 | star.png    | AI-generated  | Original work, free to use       |
 | sun.png     | AI-generated  | Original work, free to use       |
+| sunflower.png | AI-generated | Original work, free to use       |
 | tiger.png   | AI-generated  | Original work, free to use       |
 | tree.png    | AI-generated  | Original work, free to use       |
 
-Note: `pillow.png` is not yet present; add a row when it is added.
 </content>
 </invoke>
