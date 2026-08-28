@@ -23,6 +23,7 @@ const MAX_TILE_WIDTH: int = 150
 @onready var _slots: HBoxContainer = %SlotsContainer
 @onready var _quit_button: Button = %QuitButton
 @onready var _quit_dialog: ConfirmationDialog = %QuitDialog
+@onready var _success_overlay: Control = %SuccessOverlay
 
 var _words: Array[WordData] = []
 var _index: int = 0
@@ -131,9 +132,24 @@ func _on_slot_filled() -> void:
 
 func _on_word_solved() -> void:
 	AudioManager.play(_success_sound)
-	await get_tree().create_timer(NEXT_WORD_DELAY).timeout
+	await _play_success_animation()
 	_index = (_index + 1) % _words.size()
 	_load_word(_words[_index])
+
+
+func _play_success_animation() -> void:
+	var label: Label = _success_overlay.get_node("Label")
+	label.scale = Vector2(0.3, 0.3)
+	_success_overlay.modulate.a = 0.0
+	_success_overlay.visible = true
+	var tween := create_tween()
+	tween.tween_property(_success_overlay, "modulate:a", 1.0, 0.25)
+	tween.parallel().tween_property(label, "scale", Vector2(1.0, 1.0), 0.35) \
+		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	tween.tween_interval(0.5)
+	tween.tween_property(_success_overlay, "modulate:a", 0.0, 0.3)
+	await tween.finished
+	_success_overlay.visible = false
 
 
 func _on_quit_pressed() -> void:
